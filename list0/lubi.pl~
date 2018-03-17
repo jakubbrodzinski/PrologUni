@@ -1,0 +1,3 @@
+lubi(jd,prolog).
+lubi(jd, X) :- lubi(X,prolog).
+

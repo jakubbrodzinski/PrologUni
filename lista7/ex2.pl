@@ -9,10 +9,10 @@ split(IN,OUT1,OUT2) :-		% splits stream into two smaller streams that are the sa
 	),!.
 
 %merge sort O(nlog n)
-merge_sort([],[]).
-merge_sort([X],[X]) :- freeze(X,true).
 merge_sort(IN,OUT) :-
 	freeze(IN,
+		(IN=[],OUT=[]);
+		(IN=[X],OUT=[X]);
 		(split(IN,O1,O2),
 		merge_sort(O1,O1_SORTED),
 		merge_sort(O2,O2_SORTED),

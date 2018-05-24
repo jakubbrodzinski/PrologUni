@@ -18,7 +18,7 @@ think(ID,ML,MR) :-
 eat(ID) :- 
 		my_format('[~w] eats~n',[ID]),
 		sleep(3).
-
+		
 forks(ID,ML,MR):- 
 		my_format('[~w] wants right fork~n',[ID]),
 		mutex_lock(MR),

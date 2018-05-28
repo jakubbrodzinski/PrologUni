@@ -1,5 +1,4 @@
-consult('queens.pl').
-
+:- consult('queens.pl').
 :- use_module(library(pwp)).
 
 ex2 :-

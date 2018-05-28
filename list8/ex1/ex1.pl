@@ -9,8 +9,5 @@ servers(FILE,SERVERS) :-
 
 getHost(DOM,H) :-
 	xpath(DOM,//a(@href), HREF),
-	(
-		(is_absolute_url(HREF),parse_url(HREF,X));
-		parse_url(HREF,'https://localhost/',X)
-	),
+	parse_url(HREF,'https://localhost/',X),
 	X=[protocol(_),host(H),path(_)].

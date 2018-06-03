@@ -1,4 +1,4 @@
-size(2).
+size(7).
 
 queens(N, P) :-
 	numlist(1, N, L),

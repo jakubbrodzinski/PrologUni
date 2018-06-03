@@ -53,5 +53,6 @@ cell(H,I) -->  { I2 is I-1,
 					(
 						(H=\=I,X='/empty.png');
 						X='/queen.png'
-					)},
-					cell(H,I2), html(td(img(src(X)))).
+					)
+				},
+				cell(H,I2), html(td(img(src(X)))).

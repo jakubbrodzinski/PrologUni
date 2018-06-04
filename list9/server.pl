@@ -39,20 +39,23 @@ handler_solution(Request) :-
     ).
 
 board([size=SIZE]) -->
-	{ atom_number(SIZE,INT),write(INT), once(queens(INT,P))},
+	{
+		atom_number(SIZE,INT),
+		once(queens(INT,P))
+	},
 	row(P,INT).
 
 row([],_) --> [].
 row([H|T],N) -->
-	html(tr([])),
-	cell(H,N),
+	html(tr(\cell(H,N))),
 	row(T,N).
 
-cell(H,0) --> [].
-cell(H,I) -->  { I2 is I-1, 
-					(
-						(H=\=I,X='/empty.png');
-						X='/queen.png'
-					)
-				},
-				cell(H,I2), html(td(img(src(X)))).
+cell(_,0) --> [].
+cell(H,I) --> 
+	{ I2 is I-1, 
+		(
+			(H=\=I,X='/empty.png');
+			X='/queen.png'
+		)
+	},
+	cell(H,I2), html(td(img(src(X)))).

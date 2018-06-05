@@ -10,4 +10,4 @@ servers(FILE,SERVERS) :-
 getHost(DOM,H) :-
 	xpath(DOM,//a(@href), HREF),
 	parse_url(HREF,'https://localhost/',X),
-	X=[protocol(_),host(H),path(_)].
+	member(host(H),X).
